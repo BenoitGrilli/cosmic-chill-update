@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Moon, Wallet } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import FloatingAstronaut from "@/components/animation/floating-astronaute"
 
 export default function MainPage() {
   const nfts = [
@@ -54,6 +55,7 @@ export default function MainPage() {
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none bg-clip-text text-transparent bg-gradient-to-r from-white to-indigo-300">
                 Welcome To Cosmic Chill
               </h1>
+              <FloatingAstronaut/>
               <p className="mx-auto max-w-[700px] text-zinc-200 md:text-xl bg-black bg-opacity-50 p-4 rounded-lg">
                 Discover and collect serene NFTs inspired by the tranquil beauty of the cosmos. Unwind with art that's out of this world.
               </p>

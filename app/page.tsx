@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Moon, Wallet } from "lucide-react"
+
 import Link from "next/link"
 import Image from "next/image"
-import FloatingAstronaut from "@/components/animation/floating-astronaute"
+import FloatingAstronaut from "@/components/animation/floating-astronaute-animation"
+import HeroTextAnimation from "@/components/animation/hero-text-animation"
 
 export default function MainPage() {
   const nfts = [
@@ -14,51 +15,24 @@ export default function MainPage() {
     { id: 5, name: "Galactic Glow", image: "/placeholder.svg?height=400&width=400" },
   ]
 
+
+  const backgroundStyle = {
+    backgroundImage: "url('/images/background-hero.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "top",
+    height: "h-screen",
+  };
+
   return (
-    <div className="flex flex-col min-h-[100dvh] bg-gradient-to-b from-indigo-900 via-purple-900 to-black text-white">
-      <header className="px-4 lg:px-6 h-16 flex items-center justify-between border-b border-indigo-800">
-        <Link className="flex items-center justify-center" href="#">
-          <Moon className="h-6 w-6 mr-2" />
-          <span className="font-bold text-xl">Cosmic Chill</span>
-        </Link>
-        <nav className="flex items-center space-x-4 sm:space-x-6">
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
-            Home
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
-            Gallery
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
-            Mint
-          </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
-            My Collection
-          </Link>
-          <Button variant="outline" size="sm">
-            <Wallet className="h-4 w-4 mr-2" />
-            Connect Wallet
-          </Button>
-        </nav>
-      </header>
+
+    <div className="flex flex-col min-h-[100dvh]" style={backgroundStyle}>
+
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 relative">
-          <Image
-            src="/placeholder.svg?height=800&width=1600"
-            alt="Cosmic background"
-            layout="fill"
-            objectFit="cover"
-            quality={100}
-            className="absolute inset-0 z-0"
-          />
           <div className="container px-4 md:px-6 relative z-10">
             <div className="flex flex-col items-center space-y-4 text-center">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none bg-clip-text text-transparent bg-gradient-to-r from-white to-indigo-300">
-                Welcome To Cosmic Chill
-              </h1>
-              <FloatingAstronaut/>
-              <p className="mx-auto max-w-[700px] text-zinc-200 md:text-xl bg-black bg-opacity-50 p-4 rounded-lg">
-                Discover and collect serene NFTs inspired by the tranquil beauty of the cosmos. Unwind with art that's out of this world.
-              </p>
+              <HeroTextAnimation />
+              <FloatingAstronaut />
             </div>
           </div>
         </section>
@@ -105,5 +79,6 @@ export default function MainPage() {
         </nav>
       </footer>
     </div>
+
   )
 }

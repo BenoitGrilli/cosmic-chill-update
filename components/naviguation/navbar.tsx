@@ -1,38 +1,34 @@
 import React from "react";
+import Link from "next/link";
+import { Moon, Wallet } from "lucide-react"
+import { Button } from "../ui/button";
 
 export default function NavBar() {
   return (
     <>
-      <header className="text-white body-font">
-        <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-          <a
-            className="flex title-font font-medium items-centertext-white ml-3 text-2xl mb-4 md:mb-0"
-            style={{ fontFamily: "'Anton', sans-serif" }}
-            href="/home"
-          >
-            COSMIC CHILL
-          </a>
-          <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            <a className=" font-bold py-2 px-4 hover:text-blue-500" href="/home">
-              HOME
-            </a>
-            <a className=" font-bold py-2 px-4 hover:text-blue-500" href="/gallery">
-              GALLERY
-            </a>
-            <a className=" font-bold py-2 px-4 hover:text-blue-500" href="/mint">
-              MINT
-            </a>
-            <a
-              className=" font-bold py-2 px-4 hover:text-blue-500"
-              href="/mycollection"
-            >
-              MY COLLECTION
-            </a>
-          </nav>
-
-
-        
-        </div>
+      <header className="px-4 lg:px-6 h-16 flex items-center justify-between border-b border-indigo-800">
+        <Link className="flex items-center justify-center" href="#">
+          <Moon className="h-6 w-6 mr-2" />
+          <span className="font-bold text-xl">Cosmic Chill</span>
+        </Link>
+        <nav className="flex items-center space-x-4 sm:space-x-6">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+            Home
+          </Link>
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+            Gallery
+          </Link>
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+            Mint
+          </Link>
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+            My Collection
+          </Link>
+          <Button variant="outline" size="sm">
+            <Wallet className="h-4 w-4 mr-2" />
+            Connect Wallet
+          </Button>
+        </nav>
       </header>
     </>
   );

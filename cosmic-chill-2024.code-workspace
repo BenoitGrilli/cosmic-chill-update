@@ -1,19 +1,15 @@
 {
 	"folders": [
 		{
-			"name": "cosmic-chill-2024",
 			"path": "."
 		},
 		{
-			"name": "cosmic-chill",
 			"path": "../cosmic-chill"
 		},
 		{
-			"name": "logiqr",
 			"path": "../../LogiQR/logiqr"
 		},
 		{
-			"name": "owl",
 			"path": "../../LogiQR/projetowl/owl"
 		}
 	],

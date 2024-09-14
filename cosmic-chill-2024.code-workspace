@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "../../LogiQR/logiqr"
+		},
+		{
+			"path": "../../LogiQR/projetowl/owl"
 		}
 	],
 	"settings": {}

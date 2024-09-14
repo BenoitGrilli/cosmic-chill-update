@@ -24,8 +24,8 @@ const FloatingAstronaut = () => {
     return (
         <Image
             ref={imgRef}
-            width={500}
-            height={500}
+            width={1200}
+            height={1200}
             src="/images/chilling astronaut.png"
             alt="Chilling Astronaut"
         />

@@ -15,13 +15,13 @@ export default function NavBar() {
           <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
             Home
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/gallery">
             Gallery
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/mint">
             Mint
           </Link>
-          <Link className="text-sm font-medium hover:underline underline-offset-4" href="#">
+          <Link className="text-sm font-medium hover:underline underline-offset-4" href="/my-collection">
             My Collection
           </Link>
           <Button variant="outline" size="sm">

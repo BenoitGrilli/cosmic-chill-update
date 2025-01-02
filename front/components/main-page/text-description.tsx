@@ -1,6 +1,11 @@
+"use client";
 import React from 'react';
+import { Button } from "@/components/ui/button";
+import { useRouter } from 'next/navigation';
 
 const TextDescription = () => {
+  const router = useRouter();
+
   return (
     <div className="mt-6 space-y-4">
       <h2 className="text-2xl md:text-3xl font-bold text-blue-400">Discover Cosmic Chill</h2>
@@ -10,17 +15,17 @@ const TextDescription = () => {
         seeking digital serenity.
       </p>
       <div className="flex gap-4 mt-6">
-        <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg 
-          transition-colors duration-200">
-          Explore Collection
-        </button>
-        <button className="border border-blue-400 text-blue-400 hover:bg-blue-400/10 
-          px-6 py-2 rounded-lg transition-colors duration-200">
-          Learn More
-        </button>
+        <Button 
+          variant="default"
+          size="lg"
+          onClick={() => router.push('/mint')}
+          className="bg-blue-500 hover:bg-blue-600"
+        >
+          Mint your NFT
+        </Button>
       </div>
     </div>
   );
 };
 
-export default TextDescription;
+export default TextDescription; 

@@ -1,17 +1,7 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "../cosmic-chill"
-		},
-		{
-			"path": "../../LogiQR/logiqr"
-		},
-		{
-			"path": "../../LogiQR/projetowl/owl"
-		}
-	],
-	"settings": {}
+    "folders": [
+        {
+            "path": "."
+        }
+    ]
 }

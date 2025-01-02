@@ -8,13 +8,13 @@ contract Airdrop is Ownable {
     CosmicToken public token;
     mapping(address => bool) public hasClaimed;
 
-    uint256 public constant TOKENS_PER_CLAIM = 1000 * (10**18);
+       uint256 public constant TOKENS_PER_CLAIM = 3 * (10**18); 
 
     event AirdropClaimed(address indexed claimant, uint256 amount);
     event AirdropUnclaimed(address indexed claimant);
 
-    constructor(address _token) {
-        token = CosmicToke(_token);
+    constructor(address _token) Ownable(msg.sender) {
+        token = CosmicToken(_token);
     }
 
     function claimAirdrop() external {

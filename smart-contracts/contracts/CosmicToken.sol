@@ -8,14 +8,11 @@ contract CosmicToken is ERC20, Controlable {
     constructor(
         address minter,
         address admin
-    ) ERC20("CosmicToken", "COSMIC") Controlable(minter, admin) {
-        // Note: It's okay to have a constructor here and in Controlable.sol
-        // However, for upgradeable contracts, you'll need to use initializer functions instead
-    }
+    ) ERC20("CosmicToken", "COSMIC") Controlable(minter, admin) {}
 
     function mint(address to, uint256 amount) public onlyRole(MINTER_ROLE) {
-        _mint(to, amount);
-    }
+    _mint(to, amount);
+}
 
     function blacklistUser(address user, bool shouldBlacklist) external onlyAdminOrOwner returns (bool) {
         return _blacklistUser(user, shouldBlacklist);
@@ -40,6 +37,4 @@ contract CosmicToken is ERC20, Controlable {
         require(!_isBlacklistedUser(to), "CosmicToken: recipient is blacklisted");
         return super.transferFrom(from, to, amount);
     }
-
-    // TODO: Override approve, increaseAllowance, decreaseAllowance, _beforeTokenTransfer
 }

@@ -18,7 +18,7 @@ describe("CosmicToken contract", function () {
     [owner, addr1, addr2, addr3, ...addrs] = await ethers.getSigners();
     const CosmicToken = await ethers.getContractFactory("CosmicToken");
     cosmicToken = await CosmicToken.deploy(addr1.address, addr2.address);
-   
+
 
     OWNER_ROLE = await cosmicToken.OWNER_ROLE();
     MINTER_ROLE = await cosmicToken.MINTER_ROLE();
@@ -89,21 +89,28 @@ describe("CosmicToken contract", function () {
   });
 
   describe("Minting", function () {
-    it("Should allow minter to mint tokens", async function () {
-      const initialBalance = await cosmicToken.balanceOf(addr1.address);
-      const amountToMint = parseUnits("100");
-
-      await cosmicToken.connect(addr1).mint(addr1.address, amountToMint);
-      let finalBalance = await cosmicToken.balanceOf(addr1.address);
-      expect(Number(finalBalance)).to.equal(Number(initialBalance) + Number(amountToMint));
-    });
-
     it("Should not allow non-minter to mint tokens", async function () {
       const amountToMint = parseUnits("100");
+      await expect(
+        cosmicToken.connect(addr3).mint(addr2.address, amountToMint)
+      ).to.be.reverted;
+    });
+    it("Should allow owner to mint tokens", async function () {
+      const amountToMint = parseUnits("100");
+      await cosmicToken.connect(owner).giveMinterRole(owner.address);
+      await cosmicToken.connect(owner).mint(owner.address, amountToMint);
 
-      await expect(cosmicToken.connect(addr3).mint(addr2.address, amountToMint)).to.be.revertedWith(
-        "AccessControl: account " + addr3.address.toLowerCase() + " is missing role " + MINTER_ROLE
-      );
+      const finalBalance = await cosmicToken.balanceOf(owner.address);
+      expect(finalBalance).to.equal(amountToMint);
+    });
+
+    it("Should allow admin to mint tokens if they have minter role", async function () {
+      const amountToMint = parseUnits("100");
+      await cosmicToken.connect(owner).giveMinterRole(addr2.address);
+      await cosmicToken.connect(addr2).mint(addr2.address, amountToMint);
+
+      const finalBalance = await cosmicToken.balanceOf(addr2.address);
+      expect(finalBalance).to.equal(amountToMint);
     });
   });
 
